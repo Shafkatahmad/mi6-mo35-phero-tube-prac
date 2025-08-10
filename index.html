@@ -12,6 +12,42 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
+    <header>
+      <nav
+        class="flex justify-between w-11/12 mx-auto border-b border-gray-300 py-3"
+      >
+        <div>
+          <img src="./assets/Logo.png" alt="" />
+        </div>
+        <div>
+          <label class="input">
+            <svg
+              class="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input type="search" class="grow" placeholder="Search" />
+            <kbd class="kbd kbd-sm">⌘</kbd>
+            <kbd class="kbd kbd-sm">K</kbd>
+          </label>
+        </div>
+        <div>
+          <button class="btn">SORT</button>
+        </div>
+      </nav>
+    </header>
+
     <!-- scripts -->
     <script src="./script/video.js"></script>
   </body>
