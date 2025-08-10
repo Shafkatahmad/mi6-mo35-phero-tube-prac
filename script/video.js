@@ -46,15 +46,25 @@ const displayCategories = async (category) => {
   const categoryContainer = document.getElementById('category');
 
   category.forEach( (item) => {
-    const btn = document.createElement("button");
-    btn.classList = "btn";
-    btn.innerHTML = `
-    ${item.category}
+    const buttonContainer = document.createElement("div");
+    buttonContainer.innerHTML = `
+    <button id="btn-${item.category_id}" onclick="loadCategoryVideos(${item.category_id})" class="btn">${item.category}</button>
     `
 
     // add the button to the category container
-    categoryContainer.append(btn);
+    categoryContainer.append(buttonContainer);
   })
+}
+
+const loadCategoryVideos = async (id) => {
+  try {
+    const res = await fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
+    const data = await res.json();
+    displayVideos(data.category);
+  }
+  catch(error) {
+    console.error("Error fetching category video data");
+  }
 }
 
 
