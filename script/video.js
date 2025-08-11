@@ -1,3 +1,8 @@
+document.getElementById('search-input').addEventListener('keyup', (e) => {
+  loadVideo(e.target.value);
+})
+
+
 function getTimeString(time) {
     const totalSec = Number(time);
     const hour = parseInt(time/3600);
@@ -73,7 +78,7 @@ const loadCategoryVideos = async (id) => {
 
     // add active buttons by the id parameter
     const activeBtn = document.getElementById(`btn-${id}`);
-    activeBtn.classList.add("active");
+    activeBtn.classList.add("active");  
 
     displayVideos(data.category);
   }
@@ -84,9 +89,9 @@ const loadCategoryVideos = async (id) => {
 
 
 
-const loadVideo = async () => {
+const loadVideo = async (searchText = "") => {
   try {
-    const res = await fetch('https://openapi.programming-hero.com/api/phero-tube/videos');
+    const res = await fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`);
     const data = await res.json();
     console.log(data.videos)
     displayVideos(data.videos)
