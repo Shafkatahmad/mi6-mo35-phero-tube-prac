@@ -83,6 +83,7 @@ const loadVideo = async () => {
 
 const displayVideos = (videoss) => {
   const videoContainer = document.getElementById('videos');
+  videoContainer.innerHTML = "";
 
   videoss.forEach( video => {
     console.log(video)
